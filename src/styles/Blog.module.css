@@ -1,0 +1,23 @@
+.main{
+    padding: 10px 20px;
+}
+#blogTitle{
+    font-weight: bold;
+    font-size: 18px;
+}
+#searchInput{
+    margin: 0 0 20px;
+}
+.blogTop{
+    width: 100%;
+    margin: 0 0  20px;
+    display: flex;
+    justify-content: space-between;
+}
+.blogCompletionTime{
+    font-weight: bold;
+}
+.blogContent{
+    font-weight: bold;
+
+}
