@@ -56,31 +56,31 @@ const Home: NextPage<props> = (props:props) => {
 }
 export const getStaticProps: GetStaticProps = async () => {
   //获取用户信息
-  let personInfo = await fetch(process.env.API+`v1/person`).then((resp)=>{
+  let personInfo = await fetch(process.env.API+`user`).then((resp)=>{
     return resp.json()
   })
   //获取名言警句
-  let dictum = await fetch(process.env.API+`v1/dictum`).then((resp)=>{
+  let dictum = await fetch(process.env.API+`dictum`).then((resp)=>{
     return resp.json()
   })
   //获取联系方式
-  let relate = await fetch(process.env.API+`v1/relate`).then((resp)=>{
+  let relate = await fetch(process.env.API+`relate`).then((resp)=>{
     return resp.json()
   })
   //获取个人收藏
-  let collection = await fetch(process.env.API+`v1/collection`).then((resp)=>{
+  let collection = await fetch(process.env.API+`collection`).then((resp)=>{
     return resp.json()
   })
   //获取推荐博客信息
-  let recommendBlog = await fetch(process.env.API+`v1/recommendBlog`).then((resp)=>{
+  let recommendBlog = await fetch(process.env.API+`blog/recommend`).then((resp)=>{
     return resp.json()
   })
   //获取最新博客信息
-  let newestBlog = await fetch(process.env.API+`v1/newestBlog`).then((resp)=>{
+  let newestBlog = await fetch(process.env.API+`Blog/newest`).then((resp)=>{
     return resp.json()
   })
   //获取推荐视频
-  let recommendVideo = await fetch(process.env.API+`v1/recommendVideo`).then((resp)=>{
+  let recommendVideo = await fetch(process.env.API+`video`).then((resp)=>{
     return resp.json()
   })
   return {

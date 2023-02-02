@@ -52,7 +52,7 @@ const Blogs: NextPage<props> = (props:props) => {
     )
 }
 export const getStaticProps:GetStaticProps=async ()=>{
-    let blog = await fetch(process.env.API+'v1/blog').then((resp)=>{
+    let blog = await fetch(process.env.API+'blog').then((resp)=>{
         return resp.json()
     })
     return {

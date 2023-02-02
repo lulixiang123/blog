@@ -55,9 +55,10 @@ const BlogItem: NextPage<props> = (props:props) => {
 }
 
 export const getStaticPaths:GetStaticPaths=async ()=>{
-    let blog = await fetch(process.env.API+'v1/blog')
-    const blogArray:Array<Blog>=await blog.json()
-    const paths = blogArray.map((blog) => ({
+    let blog = await fetch(process.env.API+'blog').then((resp)=>{
+        return resp.json()
+    })
+    const paths = blog.map((blog:any) => ({
         params: { blogId: String(blog.blogId) },
     }))
     return {
@@ -68,9 +69,10 @@ export const getStaticPaths:GetStaticPaths=async ()=>{
 export const getStaticProps:GetStaticProps=async (context:any)=>{
     let blog:any=null
     let blogContent=null
+    console.log(process.env.API + 'blog/' + context.params.blogId)
     try {
-        blog= await (await fetch(process.env.API + 'v1/blogItem?id=' + context.params.blogId)).json()
-        blogContent = await (await fetch(process.env.NEXT_PUBLIC_BLOG + blog.blogUrl)).text()
+        blog= await (await fetch(process.env.API + 'blog/' + context.params.blogId)).json()
+        blogContent = await (await fetch(process.env.BLOG + blog.blogUrl)).text()
     }catch (e) {
         console.log(e)
     }
