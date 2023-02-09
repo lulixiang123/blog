@@ -27,8 +27,8 @@ const Blogs: NextPage<props> = (props:props) => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>欢迎大佬</title>
-                <meta name="home" content="欢迎大佬" />
+                <title>Hydration Error 的博客</title>
+                <meta name="home" content="Hydration Error 的博客" />
                 <link rel="icon" href="/chook.svg" />
             </Head>
             <Card className={styles.main} title={(<span id={styles.blogTitle}>我的博客</span>)}>

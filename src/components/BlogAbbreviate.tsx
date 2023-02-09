@@ -2,6 +2,7 @@ import React from "react";
 import {Card} from "antd";
 import {useRouter} from "next/router";
 import Blog from "@/types/Blog";
+import Image from "next/image";
 const { Meta } = Card;
 type props={
     blog:Blog
@@ -13,9 +14,11 @@ const BlogAbbreviate:React.FC<props> = (props) => {
         <div className={"blog"}>
             <Card hoverable
                   cover={(
-                      <div className={"blogImgUrl"} style={{background: 'url("'+process.env.NEXT_PUBLIC_IMG+blog.blogImgUrl+'") no-repeat top center',height:'200px',width:'100%'}}>
+                      <div className={"blogImgUrl"} style={{position:"relative",height:'200px',width:'100%'}}>
                           <span className={"blogSubtitle"}>{blog.blogSubtitle}</span>
-                      </div>)}
+                          <Image src={process.env.NEXT_PUBLIC_IMG+blog.blogImgUrl} alt={"博文配图"} layout="fill" objectFit="cover" />
+                      </div>
+                      )}
                   onClick={()=>{router.push("/Blog/"+blog.blogId)}}
             >
                 <Meta title={(
@@ -37,6 +40,8 @@ const BlogAbbreviate:React.FC<props> = (props) => {
                           background: black;
                           padding:0 10px 5px;
                           font-size: 1.4rem;
+                          position: absolute;
+                          z-index: 2;
                       }
                       .blogMessage{
                           display: flex;

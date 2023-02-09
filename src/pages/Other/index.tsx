@@ -29,8 +29,8 @@ const Friend: NextPage<props> = (props) => {
     return (
         <div>
             <Head>
-                <title>大佬轻骂</title>
-                <meta name="description" content="相关页面" />
+                <title>Hydration Error 的博客</title>
+                <meta name="home" content="Hydration Error 的博客" />
                 <link rel="icon" href="/chook.svg" />
             </Head>
             <div className={styles.main}>

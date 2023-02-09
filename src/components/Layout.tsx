@@ -21,12 +21,12 @@ const Layout:React.FC<Props> = ({children}) => {
             <style jsx>
                 {`
                   main{
-                    background: #f7f9fa;
+                    background: #121212;
                     min-height: 100vh;
                     padding: 60px 0 20px;
                   }  
                   #contents{
-                    background: white;
+                    background: #121212;
                     width: 80%;
                     margin: 0 auto;
                     overflow: hidden;

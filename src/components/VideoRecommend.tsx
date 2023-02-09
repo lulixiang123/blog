@@ -17,7 +17,7 @@ const VideoRecommend:React.FC<props> = (props) => {
                         return (
                             <div key={item.videoUrl} className={"carouselItem"}>
                                 <Link href={item.videoUrl}>
-                                    <Image src={item.imgUrl} alt={"头像"} layout="fill"/>
+                                    <Image src={item.imgUrl} alt={"推荐图片"} fill sizes="100%"/>
                                 </Link>
                             </div>
                         )

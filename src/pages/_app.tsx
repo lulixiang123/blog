@@ -9,7 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <>
           <Head>
-              <title>欢迎大佬</title>
+              <title>Hydration Error 的博客</title>
+              <meta name="home" content="Hydration Error 的博客" />
+              <link rel="icon" href="/chook.svg" />
           </Head>
           <Layout>
               <Component {...pageProps} />

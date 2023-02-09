@@ -22,7 +22,7 @@ const PersonalInfoCard:React.FC<props> = (props) => {
         <div id={"PersonalInfoCard"}>
             <Card title={(<div id={"title"}>博客信息</div>)}>
                 <div id={"avatar"}>
-                    <Image src={personInfo.avatarUrl} alt={"头像"} layout="fill"/>
+                    <Image src={personInfo.avatarUrl} alt={"头像"} fill sizes="100%"/>
                 </div>
                 <div id={"nickname"}>{personInfo.nickname}</div>
                 <div id={"personalPosition"}>{personInfo.personalPosition}</div>

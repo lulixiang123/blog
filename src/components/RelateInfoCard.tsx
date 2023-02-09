@@ -1,8 +1,8 @@
 import React from "react";
 import {Card, Divider, Button} from 'antd';
-import Relate from "@/types/Relate";
+import ContactInformation from "@/types/ContactInformation";
 type props={
-    relate:Array<Relate>
+    relate:Array<ContactInformation>
 }
 const RelateInfoCard:React.FC<props> = (props) => {
     const relate=props.relate

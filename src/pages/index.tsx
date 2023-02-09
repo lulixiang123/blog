@@ -8,7 +8,7 @@ import LatestBlogCard from "../components/LatestBlogCard";
 import RecommendBlogCard from "../components/RecommendBlogCard";
 import PersonInfo from "@/types/PersonInfo";
 import Dictum from "@/types/Dictum";
-import Relate from "@/types/Relate";
+import ContactInformation from "@/types/ContactInformation";
 import Collection from "@/types/Collection";
 import Blog from "@/types/Blog";
 import VideoRecommend from "@/components/VideoRecommend";
@@ -17,7 +17,7 @@ import Video from "@/types/Video";
 type props={
   personInfo : PersonInfo,
   dictum : Array<Dictum>,
-  relate : Array<Relate>,
+  relate : Array<ContactInformation>,
   collection : Array<Collection>,
   recommendBlog : Array<Blog>
   newestBlog : Array<Blog>
@@ -35,8 +35,8 @@ const Home: NextPage<props> = (props:props) => {
   return (
       <div id={styles.home}>
         <Head>
-          <title>欢迎大佬</title>
-          <meta name="home" content="欢迎大佬" />
+          <title>Hydration Error 的博客</title>
+          <meta name="home" content="Hydration Error 的首页" />
           <link rel="icon" href="/chook.svg" />
         </Head>
         <div id={styles.content}>

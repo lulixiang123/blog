@@ -17,7 +17,7 @@ const RecommendBlogCard:React.FC<props> = (props) => {
                         return (
                             <div key={item.blogId} className={"blogItem"} onClick={()=>{router.push("/Blog/"+item.blogId)}}>
                                 <div className={"blogImage"}>
-                                    <Image src={process.env.NEXT_PUBLIC_IMG+item.blogImgUrl} alt={"博文配图"} layout="fill"/>
+                                    <Image src={process.env.NEXT_PUBLIC_IMG+item.blogImgUrl} alt={"博文配图"} fill sizes="100%"/>
                                 </div>
                                 <div className={"blogTitle"}>{item.blogTitle}</div>
                             </div>
@@ -57,7 +57,7 @@ const RecommendBlogCard:React.FC<props> = (props) => {
                     text-align: center;
                     font-weight: bold;
                     color: #666666;
-                    font-family: "微软雅黑 Light";
+                    font-family: "微软雅黑 Light",serif;
                   }
                   @media (max-width: 1000px) {  
                         #blogList{

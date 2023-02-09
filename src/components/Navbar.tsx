@@ -1,33 +1,27 @@
-import React, {ReactNode, useState} from "react";
+import React from "react";
 import Link from "next/link";
-import {HomeOutlined,FileMarkdownOutlined,ToolOutlined,NotificationOutlined,MenuOutlined,SearchOutlined} from '@ant-design/icons'
-import {Button, Input, Modal} from 'antd';
+import {SearchOutlined} from '@ant-design/icons'
 import {useRouter} from "next/router";
-const { Search } = Input;
 const Navbar:React.FC = () => {
     const linkList:Array<{
         href:string,
-        name:string,
-        icon:ReactNode
+        name:string
     }>=[{
         href:"/",
-        name:"首页",
-        icon:(<NotificationOutlined/>)
+        name:"Home"
     },{
         href:"/Blog",
-        name:"博客",
-        icon:(<FileMarkdownOutlined/>)
+        name:"Blog"
     },{
         href:"/Other",
-        name:"其他",
-        icon:(<NotificationOutlined/>)
+        name:"Other"
     }]
     const router=useRouter()
     return (
         <>
             <nav>
                 <div id="navTitle">
-                    卢力翔的博客
+                    Hydration Error
                 </div>
                 <div id="navList">
                     <div id="pc">
@@ -35,17 +29,15 @@ const Navbar:React.FC = () => {
                             linkList.map((item)=>{
                                 return (
                                     <Link key={item.href} href={item.href}>
-                                        <span className={"linkItem"}>{item.icon} {item.name}</span>
+                                        <span className={"linkItem"}>{item.name}</span>
                                     </Link>
                                 )
                             })
                         }
                     </div>
                     <div id="mobile">
-                        <div>
-                            <Button type="primary" onClick={()=>{router.push("/Blog")}}>
-                                <SearchOutlined/>
-                            </Button>
+                        <div id="mobileIcon">
+                            <SearchOutlined  onClick={()=>{router.push("/Blog")}}/>
                         </div>
                     </div>
                 </div>
@@ -55,18 +47,16 @@ const Navbar:React.FC = () => {
                 {`
                   nav{
                     width: 100%;
-                    background: white;
+                    background: #215c8c;
                     display: flex;
                     justify-content: space-between;
-                    border-bottom: 2px solid #e8e9ea;
                     padding: 10px 15%;
                     position: fixed;
                     z-index: 10;
                   }
                   #navTitle{
                     font-size: 2.4rem;
-                    color: #47a2ff;
-                    font-weight: bold;
+                    color: white;
                     display: flex;
                     align-items: center;
                   }
@@ -75,13 +65,21 @@ const Navbar:React.FC = () => {
                     align-items: center;
                   }
                   .linkItem{
-                    font-size: 1.8rem;
+                    font-size: 1.6rem;
+                    font-weight: bold;
                     padding:0 15px;
-                    color: black;
+                    color: white;
                     transition: all 200ms;
                   }
                   .linkItem:hover{
                     color: #47a2ff;
+                  }
+                  #mobile{
+                    display: none;
+                  }
+                  #mobile #mobileIcon{
+                    color: white;
+                    font-size: 2rem;
                   }
                   @media screen and (max-width: 800px){
                     nav{
@@ -89,6 +87,9 @@ const Navbar:React.FC = () => {
                     }
                     #pc{
                       display: none;
+                    }
+                    #mobile{
+                      display: block;
                     }
                   }
                 `}
