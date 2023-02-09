@@ -121,16 +121,20 @@ export const getStaticProps:GetStaticProps =async ()=> {
             complete:true
         },
         {
-            title:'往期作品查看',
+            title:'收藏展示',
             complete:true
+        },
+        {
+            title:'往期作品查看',
+            complete:false
         },
         {
             title:'留言板',
-            complete:true
+            complete:false
         },
         {
             title:'进行留言',
-            complete:true
+            complete:false
         },
         {
             title:'音乐播放器',
