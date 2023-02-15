@@ -1,11 +1,20 @@
 {
   "presets":["next/babel"],
-  "plugins":[
+  "plugins": [
     [
       "import",
       {
         "libraryName":"antd"
       }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties"
     ]
   ]
 }

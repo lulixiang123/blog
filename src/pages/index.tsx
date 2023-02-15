@@ -13,7 +13,6 @@ import Collection from "@/types/Collection";
 import Blog from "@/types/Blog";
 import VideoRecommend from "@/components/VideoRecommend";
 import Video from "@/types/Video";
-
 type props={
   personInfo : PersonInfo,
   dictum : Array<Dictum>,
@@ -21,9 +20,9 @@ type props={
   collection : Array<Collection>,
   recommendBlog : Array<Blog>
   newestBlog : Array<Blog>
-  recommendVideo:Array<Video>
+  recommendVideo:Array<Video>,
 }
-
+//通过 observer 把函数组件变为响应式
 const Home: NextPage<props> = (props:props) => {
   const personInfo=props.personInfo
   const dictum=props.dictum
@@ -96,4 +95,5 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate:600
   }
 };
+
 export default Home

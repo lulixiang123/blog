@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import 'highlight.js/styles/vs2015.css'
 import Head from 'next/head'
 import React from "react";
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
       <>

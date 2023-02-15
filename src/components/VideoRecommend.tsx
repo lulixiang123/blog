@@ -15,11 +15,11 @@ const VideoRecommend:React.FC<props> = (props) => {
                 <Carousel autoplay>
                     {video.map((item)=>{
                         return (
-                            <div key={item.videoUrl} className={"carouselItem"}>
-                                <Link href={item.videoUrl}>
+                            <Link key={item.videoUrl} href={item.videoUrl} className={"carouselItem"}>
+                                <div className={"carouselItem"}>
                                     <Image src={item.imgUrl} alt={"推荐图片"} fill sizes="100%"/>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         )
                     })}
                 </Carousel>

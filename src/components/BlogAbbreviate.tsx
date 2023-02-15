@@ -16,7 +16,7 @@ const BlogAbbreviate:React.FC<props> = (props) => {
                   cover={(
                       <div className={"blogImgUrl"} style={{position:"relative",height:'200px',width:'100%'}}>
                           <span className={"blogSubtitle"}>{blog.blogSubtitle}</span>
-                          <Image src={process.env.NEXT_PUBLIC_IMG+blog.blogImgUrl} alt={"博文配图"} layout="fill" objectFit="cover" />
+                          <Image src={process.env.NEXT_PUBLIC_IMG+blog.blogImgUrl} alt={"博文配图"} fill style={{objectFit:'cover'}} sizes={"100%"}/>
                       </div>
                       )}
                   onClick={()=>{router.push("/Blog/"+blog.blogId)}}

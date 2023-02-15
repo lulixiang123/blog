@@ -17,7 +17,7 @@ const RecommendBlogCard:React.FC<props> = (props) => {
                         return (
                             <div key={item.blogId} className={"blogItem"} onClick={()=>{router.push("/Blog/"+item.blogId)}}>
                                 <div className={"blogImage"}>
-                                    <Image src={process.env.NEXT_PUBLIC_IMG+item.blogImgUrl} alt={"博文配图"} fill sizes="100%"/>
+                                    <Image src={process.env.NEXT_PUBLIC_IMG+item.blogImgUrl} alt={"博文配图"} sizes="100%" fill/>
                                 </div>
                                 <div className={"blogTitle"}>{item.blogTitle}</div>
                             </div>
