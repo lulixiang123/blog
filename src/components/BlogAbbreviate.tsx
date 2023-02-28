@@ -5,9 +5,9 @@ import Blog from "@/types/Blog";
 import Image from "next/image";
 const { Meta } = Card;
 type props={
-    blog:Blog
+    blog:Blog,
 }
-const BlogAbbreviate:React.FC<props> = (props) => {
+const BlogAbbreviate:React.FC<props> = (props:props) => {
     const blog=props.blog
     const router=useRouter()
     return (

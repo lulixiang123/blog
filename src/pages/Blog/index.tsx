@@ -5,12 +5,14 @@ import styles from '../../styles/Blog.module.css'
 import React, {useState} from "react";
 import BlogAbbreviate from "../../components/BlogAbbreviate";
 import Blog from "@/types/Blog";
+import debounce from "@/utils/debounce";
 type props={
    blog : Array<Blog>
 }
 const Blogs: NextPage<props> = (props:props) => {
     const [blog,setBlog]=useState(props.blog)
-    const searchBlog=function (value :string){
+    //使用防抖包裹
+    const searchBlog=debounce(function (value :string){
         if (value===""){
             setBlog(props.blog)
         }
@@ -23,7 +25,7 @@ const Blogs: NextPage<props> = (props:props) => {
             }
             setBlog(blogArray)
         }
-    }
+    },500)
     return (
         <div className={styles.container}>
             <Head>
