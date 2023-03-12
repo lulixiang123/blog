@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //用户信息
   let userInfo=await fetch(process.env.BLOG_STORE_HOUSE+"user/config.json",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //base64格式头像
   let avatar=await fetch(process.env.BLOG_STORE_HOUSE+"user/avatar.webp",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //名人格言
   let dictum = await fetch(process.env.BLOG_STORE_HOUSE+"dictum/config.json",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -95,7 +95,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //获取联系方式
   let relate = await fetch(process.env.BLOG_STORE_HOUSE+"relate/config.json",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //获取个人收藏
   let collection = await fetch(process.env.BLOG_STORE_HOUSE+"collection/config.json",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -120,7 +120,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //获取推荐视频
   let video = await fetch(process.env.BLOG_STORE_HOUSE+"video/config.json",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -133,7 +133,7 @@ export const getStaticProps: GetStaticProps = async () => {
   //获取博客信息
   let blogInfo = await fetch(process.env.BLOG_STORE_HOUSE+"blog/config.json",{
     headers:{
-      'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()
@@ -147,7 +147,7 @@ export const getStaticProps: GetStaticProps = async () => {
   for (let i = 0; i < blogInfo.recommend.length; i++) {
     const result= await fetch(process.env.BLOG_STORE_HOUSE+"blog/"+blogInfo.recommend[i],{
       headers:{
-        'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+        'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
       }
     }).then((resp)=>{
       return resp.json()
@@ -161,7 +161,7 @@ export const getStaticProps: GetStaticProps = async () => {
   for (let i = 0; i < blogInfo.newest.length; i++) {
     const result= await fetch(process.env.BLOG_STORE_HOUSE+"blog/"+blogInfo.newest[i],{
       headers:{
-        'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+        'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
       }
     }).then((resp)=>{
       return resp.json()

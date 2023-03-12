@@ -12,7 +12,7 @@ async function rawBlogHandle(rawBlog:rawBlog):Promise<blog>{
   const blogContentLength=blogContent.length
   const blogImg=await fetch("https://api.github.com/repos/lulixiang123/blogStoreHouse/contents/img/"+blogTitle+".webp",{
     headers:{
-      'Authorization':'token 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'
+      'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
     }
   }).then((resp)=>{
     return resp.json()

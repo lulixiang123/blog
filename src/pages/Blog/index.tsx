@@ -74,7 +74,7 @@ export const getStaticProps:GetStaticProps=async ()=>{
     //获取博客列表
     let blogList = await fetch(process.env.BLOG_STORE_HOUSE+"blog",{
         headers:{
-            'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+            'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
         }
     }).then((resp)=>{
         return resp.json()
@@ -90,7 +90,7 @@ export const getStaticProps:GetStaticProps=async ()=>{
     for (let i = 0; i < blogList.length; i++) {
         const result= await fetch(process.env.BLOG_STORE_HOUSE+"blog/"+blogList[i],{
             headers:{
-                'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+                'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
             }
         }).then((resp)=>{
             return resp.json()
