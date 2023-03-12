@@ -91,8 +91,7 @@ export const getStaticProps:GetStaticProps=async (context:any)=>{
         props:{
             blogItem: blog
         },
-        revalidate:360,
-        notFound:!(blog)
+        revalidate:360
     }
 }
 
