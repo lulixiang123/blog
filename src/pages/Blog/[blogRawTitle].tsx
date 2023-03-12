@@ -49,7 +49,7 @@ const BlogItem: NextPage<props> = (props:props) => {
 export const getStaticPaths:GetStaticPaths=async ()=>{
     let blogList = await fetch("https://api.github.com/repos/lulixiang123/blogStoreHouse/contents/blog",{
         headers:{
-            'Authorization':'token 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'
+            'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
         }
     }).then((resp)=>{
         return resp.json()
