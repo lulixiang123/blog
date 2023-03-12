@@ -104,7 +104,7 @@ export const getStaticProps:GetStaticProps=async ()=>{
         props: {
             blog:blog
         },
-        revalidate:3600
+        revalidate:360
     }
 }
 export default Blogs

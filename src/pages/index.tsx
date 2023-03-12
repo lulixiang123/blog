@@ -181,7 +181,7 @@ export const getStaticProps: GetStaticProps = async () => {
       recommendBlog,
       newestBlog,
     },
-    revalidate:3600
+    revalidate:360
   }
 };
 
