@@ -47,7 +47,7 @@ const BlogItem: NextPage<props> = (props:props) => {
 }
 
 export const getStaticPaths:GetStaticPaths=async ()=>{
-    let blogList = await fetch("https://api.github.com/repos/lulixiang123/blogStoreHouse/contents/blog",{
+    let blogList = await fetch(process.env.BLOG_STORE_HOUSE+"blog",{
         headers:{
             'Authorization':'token github_pat_'+process.env.GETHUB_API_ACCESS_TOKEN
         }
