@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from "react";
 import { Card,Divider } from 'antd';
 import Image from "next/image";
-import PersonInfo from "@/types/PersonInfo";
+import UserInfo from "@/types/UserInfo";
 import Dictum from "@/types/Dictum";
-type props={
-    personInfo : PersonInfo,
-    dictum : Array<Dictum>
+interface props{
+    userInfo : UserInfo,
+    dictum : Array<Dictum>,
+    avatar : string
 }
 const PersonalInfoCard:React.FC<props> = (props) => {
-    const personInfo=props.personInfo
+    const userInfo=props.userInfo
     //为了解决随机导致的水合问题,使用useState与useEffect
     // const dictum=props.dictum[Math.floor(Math.random()*props.dictum.length)]
     const [dictum,setDictum]=useState({
@@ -18,26 +19,29 @@ const PersonalInfoCard:React.FC<props> = (props) => {
     useEffect(()=>{
         setDictum(props.dictum[Math.floor(Math.random()*props.dictum.length)])
     },[])
+
+    const avatar=props.avatar
+
     return (
         <div id={"PersonalInfoCard"}>
             <Card title={(<div id={"title"}>博客信息</div>)}>
                 <div id={"avatar"}>
-                    <Image src={personInfo.avatarUrl} alt={"头像"} fill sizes="100%"/>
+                    <Image src={avatar} alt={"头像"} fill sizes="100%"/>
                 </div>
-                <div id={"nickname"}>{personInfo.nickname}</div>
-                <div id={"personalPosition"}>{personInfo.personalPosition}</div>
-                <div id={"introduce"}>{personInfo.introduce}</div>
+                <div id={"nickname"}>{userInfo.username}</div>
+                <div id={"personalPosition"}>{userInfo.personalPosition}</div>
+                <div id={"introduce"}>{userInfo.introduce}</div>
                 <Divider>
                     <div id={"blogStatesTip"}>博客数据</div>
                 </Divider>
                 <div id={"blogStates"}>
                     <div className={"blogStateItem"}>
                         <div className={"blogStateName"}>- 博文数 -</div>
-                        <div className={"blogStateCount"}>{personInfo.blogCount}</div>
+                        <div className={"blogStateCount"}>{userInfo.blogCount}</div>
                     </div>
                     <div className={"blogStateItem"}>
                         <div className={"blogStateName"}>- 总字数 -</div>
-                        <div className={"blogStateCount"}>{personInfo.fontCount}</div>
+                        <div className={"blogStateCount"}>{userInfo.fontCount}</div>
                     </div>
                 </div>
                 <div className={"dictumTB"} style={{marginTop:"10px"}}>- 今日金句 -</div>

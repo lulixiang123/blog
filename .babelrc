@@ -1,5 +1,16 @@
 {
-  "presets":["next/babel"],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "useBuiltIns": "usage",
+          "modules": false,
+          "debug": true
+        }
+      }
+    ]
+  ],
   "plugins": [
     [
       "import",

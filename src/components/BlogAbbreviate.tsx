@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Card} from "antd";
 import {useRouter} from "next/router";
 import Blog from "@/types/Blog";
@@ -16,10 +16,10 @@ const BlogAbbreviate:React.FC<props> = (props:props) => {
                   cover={(
                       <div className={"blogImgUrl"} style={{position:"relative",height:'200px',width:'100%'}}>
                           <span className={"blogSubtitle"}>{blog.blogSubtitle}</span>
-                          <Image src={process.env.NEXT_PUBLIC_IMG+blog.blogImgUrl} alt={"博文配图"} fill style={{objectFit:'cover'}} sizes={"100%"}/>
+                          <Image src={blog.blogImg} alt={"博文配图"} fill style={{objectFit:'cover'}} sizes={"100%"}/>
                       </div>
                       )}
-                  onClick={()=>{router.push("/Blog/"+blog.blogId)}}
+                  onClick={()=>{router.push("/Blog/"+blog.blogCompletionTime+' '+blog.blogSubtitle+'-'+blog.blogTitle+'.md')}}
             >
                 <Meta title={(
                     <div className={"blogMessage"}>

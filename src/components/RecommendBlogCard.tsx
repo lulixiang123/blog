@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Card} from 'antd';
 import Image from "next/image";
 import {useRouter} from "next/router";
@@ -13,11 +13,11 @@ const RecommendBlogCard:React.FC<props> = (props) => {
         <div id={"CardRecommendBlog"}>
             <Card title={(<div id={"title"}>推荐博客</div>)}>
                 <div id={"blogList"}>
-                    {blog.map((item)=>{
+                    {blog.map((item,index)=>{
                         return (
-                            <div key={item.blogId} className={"blogItem"} onClick={()=>{router.push("/Blog/"+item.blogId)}}>
+                            <div key={item.blogTitle} className={"blogItem"} onClick={()=>{router.push("/Blog/"+item.blogCompletionTime+' '+item.blogSubtitle+'-'+item.blogTitle+'.md')}}>
                                 <div className={"blogImage"}>
-                                    <Image src={process.env.NEXT_PUBLIC_IMG+item.blogImgUrl} alt={"博文配图"} sizes="100%" fill/>
+                                    <Image src={item.blogImg} alt={"博文配图"} sizes="100%" fill/>
                                 </div>
                                 <div className={"blogTitle"}>{item.blogTitle}</div>
                             </div>

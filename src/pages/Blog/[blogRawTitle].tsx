@@ -6,17 +6,9 @@ import React, {useEffect, useRef, useState} from "react";
 import showdown from "showdown";
 import showdownHighlight from "showdown-highlight";
 import Blog from "@/types/Blog";
-type props={
-    blogItem:{
-        blogId: string,
-        blogTitle: string,
-        blogSubtitle: string,
-        blogCompletionTime: string,
-        blogUrl:string,
-        blogImgUrl:string,
-        blogContentLength:number
-    }
-    blogContent:string
+import rawBlogHandle from "@/utils/rawBlogHandle";
+interface props{
+    blogItem:Blog
 }
 const BlogItem: NextPage<props> = (props:props) => {
     //获取markdown,转化为html格式,以及高亮设置
@@ -26,7 +18,7 @@ const BlogItem: NextPage<props> = (props:props) => {
         const converter = new showdown.Converter({
             extensions: [showdownHighlight()]
         });
-        setBlogContent(converter.makeHtml(props.blogContent))
+        setBlogContent(converter.makeHtml(props.blogItem.blogContent))
     },[blogContent])
     const blogItem=props.blogItem
     return (
@@ -55,12 +47,26 @@ const BlogItem: NextPage<props> = (props:props) => {
 }
 
 export const getStaticPaths:GetStaticPaths=async ()=>{
-    let blog = await fetch(process.env.API+'blog').then((resp)=>{
+    let blogList = await fetch("https://api.github.com/repos/lulixiang123/blogStoreHouse/contents/blog",{
+        headers:{
+            'Authorization':'token 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'
+        }
+    }).then((resp)=>{
         return resp.json()
+    }).then((result)=>{
+        const list= result.map((item: any) => {
+            return item.name
+        })
+        list.pop()
+        return list
     })
-    const paths = blog.map((blog:any) => ({
-        params: { blogId: String(blog.blogId) },
-    }))
+    const paths = blogList.map((item:string) => {
+        return {
+            params: {
+                blogRawTitle: item
+            }
+        }
+    })
     return {
         paths,
         fallback:false
@@ -68,21 +74,25 @@ export const getStaticPaths:GetStaticPaths=async ()=>{
 }
 export const getStaticProps:GetStaticProps=async (context:any)=>{
     let blog:any=null
-    let blogContent=null
-    console.log(process.env.API + 'blog/' + context.params.blogId)
     try {
-        blog= await (await fetch(process.env.API + 'blog/' + context.params.blogId)).json()
-        blogContent = await (await fetch(process.env.BLOG + blog.blogUrl)).text()
+        blog=await fetch(process.env.BLOG_STORE_HOUSE+"blog/"+context.params.blogRawTitle,{
+            headers:{
+                'Authorization':'token '+process.env.GETHUB_API_ACCESS_TOKEN
+            }
+        }).then((resp)=>{
+            return resp.json()
+        }).then((result)=>{
+            return rawBlogHandle(result)
+        })
     }catch (e) {
         console.log(e)
     }
     return {
         props:{
-            blogItem: blog,
-            blogContent:blogContent
+            blogItem: blog
         },
-        revalidate:600,
-        notFound:!(blog&&blogContent)
+        revalidate:3600,
+        notFound:!(blog)
     }
 }
 

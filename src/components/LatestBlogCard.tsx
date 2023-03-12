@@ -12,7 +12,7 @@ const LatestBlogCard:React.FC<props> = (props) => {
             <Card title={(<div id={"title"}>最新博客</div>)}>
             {blog.map((item)=>{
                 return (
-                    <BlogAbbreviate key={item.blogId} blog={item}/>
+                    <BlogAbbreviate key={item.blogTitle} blog={item}/>
                 )
             })}
             </Card>
